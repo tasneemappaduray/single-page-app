@@ -1,0 +1,46 @@
+.search-bar {
+    flex: 1;
+    background-color: white;
+    width: 100%;
+    display:block;
+    margin-bottom: 20px;
+  }
+  
+  /* .search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+  } */
+
+  .search-input {
+    background-color: rgba(201, 190, 190, 0.889);
+    padding: 8px;
+    width: 20%;
+    border: 1px solid #4a4848;
+    border-radius: 4px;
+    background: url('https://img.icons8.com/ios-glyphs/30/000000/search--v1.png') no-repeat right 8px center;
+    background-size: 16px;
+  }
+
+  .offer {
+    /* border: 3px solid white; */
+    /* padding: 2px 6px; */
+    /* border-radius: 1px; */
+    background-color: rgba(201, 190, 190, 0.889);
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #4a4848;
+    border-radius: 4px;
+    background: url('https://img.icons8.com/ios-glyphs/30/000000/search--v1.png') no-repeat right 8px center;
+    background-size: 16px;
+  }
+
+  .sub_header {
+    background-color: white;
+    padding: 20px;
+    font-size: 24px;
+    text-align: left;
+    padding-left: 5%;
+  }

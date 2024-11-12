@@ -1,0 +1,17 @@
+.applicant-row .communication-status {
+    color: green;
+    margin-right: 5px;
+  }
+  
+  .time {
+    color: #b0b0b0; /* Light gray color */
+    font-size: 0.9em; /* Slightly smaller font for subtle appearance */
+    margin-left: 5px; 
+  }
+
+  .applicant-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
