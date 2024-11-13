@@ -8,6 +8,7 @@ const ApplicantTable = () => {
     const [applicants, setApplicants] = useState([])
     const [search, setSearch] = useState('');
     const [status, setStatus] = useState('idle');
+    const [showArchived, setShowArchived] = useState(false);
 
     useEffect(() => {
         const fetchApplicants = async () => {
@@ -28,16 +29,33 @@ const ApplicantTable = () => {
         fetchApplicants();
       }, []);
      
-    const filterApplicants = applicants.filter((applicant) => applicant.candidate ? applicant.candidate.toLowerCase().includes(search.toLowerCase()) : false)
+    //const filterApplicants = applicants.filter((applicant) => applicant.candidate ? applicant.candidate.toLowerCase().includes(search.toLowerCase()) : false)
+    const filterApplicants = applicants.filter((applicant) => {
+        const matchesSearchTerm = applicant.candidate
+          ? applicant.candidate.toLowerCase().includes(search.toLowerCase())
+          : false;
+        const matchesArchiveStatus = showArchived ? applicant.archived : true;
+        return matchesSearchTerm && matchesArchiveStatus;
+      });
+
     const handleSearchChange = (term) => {
         setSearch(term);
+    };
+
+    const handleShowArchivedChange = (event) => {
+        setShowArchived(event.target.checked);
       };
 
     return(
 
         <div className="applicant-table">
         <div className="table-header">
-          <span><Search searchTerm={search} onSearchChange={handleSearchChange} /></span>
+          <span> <Search 
+            searchTerm={search} 
+            onSearchChange={handleSearchChange} 
+            showArchived={showArchived} 
+            onShowArchivedChange={handleShowArchivedChange} />
+          </span>
         </div>
         <div className="applicant-counter">
             {filterApplicants.length} interview request{filterApplicants.length !== 1 ? 's' : ''}
@@ -55,6 +73,7 @@ const ApplicantTable = () => {
                 <th>Last communication</th>
                 <th>Salary</th>
                 <th>Sent by</th>
+                <th>Archived</th>
               </tr>
             </thead>
             <tbody>

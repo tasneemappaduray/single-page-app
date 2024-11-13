@@ -2,7 +2,7 @@
 import React from 'react';
 import '../styles/Search.css';
 
-const Search = ({ searchTerm, onSearchChange }) => (
+const Search = ({ searchTerm, onSearchChange, showArchived, onShowArchivedChange }) => (
   <div className='sub_header'>
         <span className="search-bar">
             <input
@@ -10,9 +10,19 @@ const Search = ({ searchTerm, onSearchChange }) => (
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="offer"
+            className="search-input"
             />
-    </span>
+        </span>
+        <div className="show-archived">
+            <label>
+            <input
+                type="checkbox"
+                checked={showArchived}
+                onChange={onShowArchivedChange}
+            />
+            Show Archived
+            </label>
+      </div>
   </div>
 );
 
